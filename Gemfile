@@ -2,6 +2,25 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 
+gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'haml'
+gem "haml-rails"
+
+gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
+gem "bson_ext", "1.0.4"
+
+gem "compass", ">= 0.10.5"
+gem "compass-960-plugin", ">= 0.10.0.beta.0"
+
+group :test, :development do
+  gem "rspec-rails", ">= 2.0.0.beta.20"
+  gem 'ruby-debug19'
+  gem 'factory_girl'
+  gem 'database_cleaner'
+end
+
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
