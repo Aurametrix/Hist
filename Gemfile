@@ -19,7 +19,8 @@ group :test, :development do
   gem 'database_cleaner'
 end
 
-
+# Deploy with Capistrano
+gem 'capistrano'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
