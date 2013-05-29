@@ -1,0 +1,41 @@
+#splash {
+  background: #E4F3FF;
+  @include linear-gradient(color-stops(#F6F9FF, #E5F3FF 50%, #E4F3FF));
+  border-bottom: 5px solid #CAE6FF;
+  
+  #intro {
+    @include alpha;
+    @include grid(9,16);
+    
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      padding-top: 20px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+    
+    a {
+      color: #fff;
+      padding-bottom: 15px;
+      border: 1px solid #666;
+      
+      h3 {
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: black 0.1em 0.1em 0.2em;
+        text-align: center;
+        margin:0;
+        padding:0;
+      }
+      
+      h6 {
+        font-size: 12px;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+  }
+}

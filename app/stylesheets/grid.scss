@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 @import "960/grid";
+@import "partials/imports";
 
 // The following generates the default grids provided by the css version of 960.gs
 .container_12 {
@@ -15,7 +16,11 @@
 
 // But most compass users prefer to construct semantic layouts like so (two column layout with header and footer):
 
-$ninesixty-columns: 24;
+$ninesixty-columns: 16;
+
+.container {
+  @include grid-container;
+}
 
 .two-column {
   @include grid-container;
