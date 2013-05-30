@@ -1,0 +1,13 @@
+%p
+  %b Name:
+  = @f.name
+%p
+  %b Type:
+  = @f.type
+%p
+  %b Description:
+  = @f.description
+
+= link_to 'Edit', edit_f_path(@f)
+\|
+= link_to 'Back', fs_path

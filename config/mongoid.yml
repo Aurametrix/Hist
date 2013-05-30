@@ -8,11 +8,11 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  database: aurametrix_development
+  database: aaa_development
 
 test:
   <<: *defaults
-  database: aurametrix_test
+  database: aaa_test
 
 # set these environment variables on your prod server
 production:

@@ -1,0 +1,23 @@
+%h1 List
+
+%table
+  %tr
+    %th Name
+    %th Type
+    %th Description
+    %th
+    %th
+    %th
+
+  - @fs.each do |f|
+    %tr
+      %td= f.name
+      %td= f.type
+      %td= f.description
+      %td= link_to 'Show', f
+      %td= link_to 'Edit', edit_f_path(f)
+      %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Item', new_f_path
