@@ -1,0 +1,25 @@
+#search {
+  margin-top: -2px;
+  z-index:-1;
+  @include grid-prefix(1);
+  @include grid(14);
+  
+  input:not([type="submit"]) { 
+	  width: 100%;
+	  border: 3px solid #008E40;
+    padding: 10px 20px;
+    background: #fff;
+    font-size: 30px;
+    color: #000; 
+  }
+}
+
+#wedge {
+  position:absolute;
+  z-index: 2;
+  border-width:20px 40px 20px 0; /* vary these values to change the angle of the vertex */
+  border-color:transparent transparent #fff;
+  border-style:solid;
+  left:230px;
+  top:57px;
+}
