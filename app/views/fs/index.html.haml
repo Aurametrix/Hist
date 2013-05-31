@@ -1,3 +1,11 @@
+.container
+  #search
+    - form_tag('/fs/search') do
+      = text_field_tag 'query', nil, :placeholder => "enter item name"
+      = submit_tag 'Find'
+      
+  .clear
+  
 %h1 List
 
 %table

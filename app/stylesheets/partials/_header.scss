@@ -1,25 +1,36 @@
 /* Header --------------------------------------------------------------*/
 header {  
-  background: #0c0c0c;
-  @include linear-gradient(color-stops(#0c0c0c, #242424 50%, #2e2e2e 75%, #363636));
+  background: #008e40;
+  //@include linear-gradient(color-stops(#0c0c0c, #242424 50%, #2e2e2e 75%, #363636));
   color: #666;
 
   hgroup {
-    padding-top: 20px;
     /* @include columns(12);
     @include alpha;
     @include leader(2,32px);
     @include trailer(1,32px); */
     
+
+    img {
+      //width: 90px;
+      //float: left;
+      @include grid(2,16);
+    }
+    
+    a {
+      text-decoration: none;
+    }
+
     h1 {
+     @include grid(4,16);
+     @include omega;
+     margin-top: 30pm
      font-size: 32px;
-     color: #69D2E7;
+     color: #fff;
      margin-bottom: 0;
-     display: inline;
     }
     
     h4 {
-      display: inline;
       font-size: 14px;
       margin-bottom: 0;
     }
