@@ -1,41 +1,22 @@
-$(function() {
-	var projects = [
-		{
-			value: 'headache',
-			label: 'pain in the head',
-			desc: 'pain in head and neck area',
-			icon: 'headache_32x32.png',
-			parent: 'symptom'
-		},
-		{
-			value: 'Running',
-			label: 'running',
-			desc: 'moving fast',
-			icon: 'running_32x32.png',
-			parent: 'activity'
-		},
-		{
-			value: 'apple',
-			label: 'raw apple',
-			desc: 'round fruit',
-			icon: 'apple_32x32.png',
-			parent: 'fruit'
-		},
-	];
-
+$(function() {	
 	$('#query').autocomplete({
-		minLength: 0,
-		source: projects,
+		minLength: 2,
+		source: function(request, response) {
+		  $.getJSON('/search', function(data) {
+        response($.map(data, function(item) {
+          return { label: item.type, value: item.name, parent: item.type, id: item._id}
+        }));
+        
+      });
+		},
+
 		focus: function(event, ui) {
 			$('#query').val(ui.item.label);
 			return false;
 		},
-		select: function(event, ui) {
-			$('#query').val(ui.item.label);
-			$('#query-id').val(ui.item.value);
-			$('#query-description').html(ui.item.desc);
-			$('#query-icon').attr('src', 'images/' + ui.item.icon);
 
+		select: function(event, ui) {
+		  alert(ui.item.id)
 			return false;
 		}
 	})
