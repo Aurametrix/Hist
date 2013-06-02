@@ -2,7 +2,7 @@ AAA::Application.routes.draw do
 
   resources :fs
   
-  root :to => 'fs#index'
+  root :to => 'search#index'
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
