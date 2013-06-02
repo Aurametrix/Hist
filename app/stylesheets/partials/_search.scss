@@ -1,25 +1,42 @@
 #search {
-  margin-top: -2px;
-  z-index:-1;
   @include grid-prefix(1);
   @include grid(14);
   
+
+  form, input {
+    position: relative;
+  }
   input:not([type="submit"]) { 
+    margin-top: -3px;
 	  width: 100%;
 	  border: 3px solid #008E40;
+	  border-top: 0px;
     padding: 10px 20px;
     background: #fff;
     font-size: 30px;
     color: #000; 
+    z-index:1;
   }
 }
 
 #wedge {
-  position:absolute;
-  z-index: 2;
-  border-width:20px 40px 20px 0; /* vary these values to change the angle of the vertex */
+  position:relative;
+  z-index: 999;
+  border-width:20px 40px 20px 0;
   border-color:transparent transparent #fff;
   border-style:solid;
-  left:230px;
-  top:57px;
+  top: -40px;
+  left: 110px;  
+  width: 0px;
+  margin-bottom:0;
+}}
+
+.parent {
+  @include grid(3);
+  color: #008E40;
+  font-size: 20px;
+}
+
+.value {
+  font-size: 20px;
 }
