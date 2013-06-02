@@ -1,8 +1,8 @@
 $(function() {	
 	$('#query').autocomplete({
-		minLength: 2,
+		minLength: 1,
 		source: function(request, response) {
-		  $.getJSON('/search', function(data) {
+                  $.getJSON('/search', {query: request.term}, function(data) {
         response($.map(data, function(item) {
           return { label: item.type, value: item.name, parent: item.type, id: item._id}
         }));
@@ -11,7 +11,7 @@ $(function() {
 		},
 
 		focus: function(event, ui) {
-			$('#query').val(ui.item.label);
+			$('#query').val(ui.item.value);
 			return false;
 		},
 
