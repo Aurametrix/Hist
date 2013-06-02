@@ -9,4 +9,7 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.desc) }
 
+  def available_categories
+    F.all.reject  {|f| f.name == self.name}
+  end
 end
