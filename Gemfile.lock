@@ -61,6 +61,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     factory_girl (1.3.2)
+    fatry_girl_rails (1.0)
     haml (3.0.18)
     haml-rails (0.2)
       haml (~> 3.0)

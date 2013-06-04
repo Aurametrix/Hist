@@ -15,7 +15,7 @@ gem "compass-960-plugin", ">= 0.10.0.beta.0"
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
   gem 'ruby-debug19'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'database_cleaner'
 end
 
