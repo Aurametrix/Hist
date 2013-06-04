@@ -1,0 +1,2 @@
+= fields_for "f[ingredients_attributes][#{Time.now.to_i}]", @int do |f|
+  = render :partial => 'form', :locals => { :f => f }

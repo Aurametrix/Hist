@@ -1,6 +1,12 @@
 AAA::Application.routes.draw do
 
-  resources :fs
+  get "ints/new"
+
+  get "search/index"
+
+  resources :foods do
+    resources :ingredients
+  end
   
   root :to => 'search#index'
 

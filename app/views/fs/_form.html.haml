@@ -24,7 +24,9 @@
     - f.fields_for :ints  do |inf|
       = render :partial => 'int', :locals => { :f => inf }
   
-    = link_to "#", "add", :remote => true
+    = link_to "+", new_f_int_path(@f), :remote => true
+    #ints children
+
   .actions
     = f.submit 'Save'
 
