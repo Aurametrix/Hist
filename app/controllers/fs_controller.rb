@@ -24,7 +24,9 @@ class fsController < ApplicationController
   # GET /fs/new
   # GET /fs/new.xml
   def new
-    @f = f.new
+    @f = F.new
+
+    @f.ints.build
 
     respond_to do |format|
       format.html # new.html.erb

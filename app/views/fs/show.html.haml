@@ -8,6 +8,11 @@
   %b Description:
   = @f.description
 
+%p
+  %b Includes
+  - @f.ints.each do |int|
+    = int.name
+
 = link_to 'Edit', edit_f_path(@f)
 \|
 = link_to 'Back', fs_path

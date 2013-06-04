@@ -18,5 +18,16 @@
   .field
     = f.label :description
     = f.text_field :description
+
+  .field
+    ints     
+    - f.fields_for :ints  do |inf|
+      = render :partial => 'int', :locals => { :f => inf }
+  
+    = link_to "#", "add", :remote => true
+  .actions
+    = f.submit 'Save'
+
+
   .actions
     = f.submit 'Save'
