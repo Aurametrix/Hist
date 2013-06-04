@@ -23,7 +23,7 @@ $(function() {
 	.data( "autocomplete" )._renderItem = function( ul, item ) {
 		return $( "<li></li>" )
 			.data( "item.autocomplete", item )
-			.append( "<a> <span class='parent'>" + item.category + ": </span><span class='value'>" + item.value + "</span></a>" )
+                        .append( "<a> <span class='parent'>" + cat + ": </span><span class='value'>" + item.value + "</span></a>" )
 			.appendTo( ul );
 	};
 });
