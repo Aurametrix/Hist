@@ -19,10 +19,12 @@
     = f.label :description
     = f.text_field :description
 
+    = link_to "+", new_food_ingredient_path(@food.id), :remote => true
+
   .field
-    ints     
-    - f.fields_for :ints  do |inf|
-      = render :partial => 'int', :locals => { :f => inf }
+    Includes:     
+      - f.fields_for :ints  do |inf|
+        = render :partial => 'ints/form', :locals => { :f => inf }
   
     = link_to "+", new_f_int_path(@f.id), :remote => true
     #ints children
