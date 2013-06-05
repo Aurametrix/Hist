@@ -10,6 +10,7 @@ class F
   accepts_nested_attributes_for :ints, :allow_destroy => true
 
   validates :name, :presence => true, :uniqueness => true
+  validates_associated :ingredients
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 

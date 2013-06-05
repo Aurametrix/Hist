@@ -1,4 +1,4 @@
 .fields
   /= f.text_field :name
-  = f.select(:name, Food.all.collect {|f| [ f.name, f.name ]}, {:prompt => 'Select Include'})
+  = f.select(:f_id, F.all.collect {|f| [ f.name, f.id ]}, {:prompt => 'Select Include'})
   = f.hidden_field(:_destroy) + link_to("remove", "javascript:void(0)", :class => "remove_child")
