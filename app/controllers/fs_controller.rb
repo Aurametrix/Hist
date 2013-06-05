@@ -26,7 +26,7 @@ class fsController < ApplicationController
   def new
     @f = F.new
 
-    @f.ints.build
+    #@f.ints.build
 
     respond_to do |format|
       format.html # new.html.erb
