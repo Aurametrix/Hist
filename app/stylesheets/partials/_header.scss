@@ -8,8 +8,11 @@
   position: relative;
 
   hgroup {
+    @include grid(6,16);
+    
     img {
       @include grid(2,16);
+      @include alpha;
     }
     
     a {
@@ -18,30 +21,38 @@
     
     h1 {
      @include grid(4,16);
+     @include omega;
      
      margin-top: 30px;
      font-size: 32px;
      color: #fff;
      margin-bottom: 0;
     }
+  }
+  
+  #navigation {
+    @include grid(8,16);
+    @include grid-prefix(2,16);
+    @include omega;
+   
+    margin-top: 20px;
     
-    h4 {
-      font-size: 14px;
-      margin-bottom: 0;
+    ul {
+      background-color: #fff;
+      color: #008E40;
+      @include no-style-list;
+      @include border-radius(4px, 4px);
+      text-align:center;
+    }
+    
+    li {
+      font-size: 20px;
+      display: inline;
+      padding: 20px 20px;
     }
   }
 }
 
-/*
-#messages {
-  background-color: #1D85C7;
-  padding: 20px 0 20px 0;
-  
-  .notice, .alert {
-    font-size: 18px;
-  }
-}
-*/
 
 #notices {
   left: 0px;
