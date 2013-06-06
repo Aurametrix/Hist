@@ -9,6 +9,8 @@ gem "haml-rails"
 gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
 gem "bson_ext", "1.0.4"
 
+gem "devise", ">= 1.1.2"
+
 gem "compass", ">= 0.10.5"
 gem "compass-960-plugin", ">= 0.10.0.beta.0"
 
