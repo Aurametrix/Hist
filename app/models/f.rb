@@ -17,4 +17,9 @@ class F
   def available_categories
     F.all.order_by(:name.asc).reject {|f| f.name == self.name}
   end
+
+  def self.all
+    order_by(:name.asc)
+  end
+
 end
