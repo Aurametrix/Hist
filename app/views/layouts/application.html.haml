@@ -23,12 +23,7 @@
           = link_to root_path do
             = image_tag "logo.png"
             %h1 AAA
-        #navigation
-          %ul
-            %li Diary
-            %li Profile
-            %li Help
-            %li Sign Out
+        = render 'layouts/navigation'
         
     .container      
       = yield
