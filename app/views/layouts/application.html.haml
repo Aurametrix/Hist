@@ -10,6 +10,13 @@
     = csrf_meta_tag
     
   %body
+    - if notice or alert
+      %ul#notices
+        - unless notice.nil?
+          %li.notice= notice
+        - unless alert.nil?
+          %li.alert= alert
+
     #header
       .container
         %hgroup
@@ -18,12 +25,6 @@
             %h1 AAA
           .clear
     
-    .container
-      #notices
-        .notice
-          = notice
-        .alert
-          = alert
         
     .container      
       = yield
