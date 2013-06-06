@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe IngredientsController do
+describe IntsController do
 
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new'
+      get 'new.js'
       response.should be_success
     end
   end

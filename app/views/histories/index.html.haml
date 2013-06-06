@@ -1,0 +1,19 @@
+%h1 Listing entries
+
+%table
+  %tr
+    %th Note
+    %th
+    %th
+    %th
+
+  - @histories.each do |diary_entry|
+    %tr
+      %td= history_entry.note
+      %td= link_to 'Show', history
+      %td= link_to 'Edit', edit_history_path(diary_entry)
+      %td= link_to 'Destroy', history_entry, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New history entry', new_history_entry_path

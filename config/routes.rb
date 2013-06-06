@@ -1,11 +1,15 @@
 AAA::Application.routes.draw do
 
+  resources :histories, :path => "history"
+  
+  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout'}  
+
   get "ints/new"
 
   get "search/index"
 
-  resources :foods do
-    resources :ingredients
+  resources :fs do
+    resources :ints
   end
   
   root :to => 'search#index'
