@@ -1,0 +1,22 @@
+#diary {
+  .entry {
+    border-bottom: 2px solid #BABABA;
+    @include grid-prefix(2);
+    
+    h6 {
+      color: #008E40;
+      font-weight: bold;
+      font-size: 34px;
+      margin-bottom: 0;
+    }
+    
+    p {
+      font-size: 18px;
+      margin-bottom: 2px;
+    }
+    
+    .created_at {
+      color: #7F7F7F;
+    }
+  }
+}

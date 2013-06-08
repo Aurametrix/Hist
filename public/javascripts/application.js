@@ -31,7 +31,8 @@ $(function() {
 		},
 
 		select: function(event, ui) {
-		  alert(ui.item.id)
+		        $("#query_f_id").val(ui.item.id)
+                        $("#search_form").submit();
 			return false;
 		}
 	})

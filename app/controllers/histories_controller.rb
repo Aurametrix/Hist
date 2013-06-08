@@ -4,7 +4,7 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.xml
   def index
-    @histories = History.all
+    @histories = History.all_by_user(current_user).order_by_date
 
     respond_to do |format|
       format.html # index.html.erb
@@ -19,7 +19,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @diary_entry }
+      format.xml  { render :xml => @history }
     end
   end
 
@@ -27,6 +27,8 @@ class HistoriesController < ApplicationController
   # GET /histories/new.xml
   def new
     @history = History.new
+    @f = F.all[2]
+    @history - History.new(:f => @f)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,10 +41,23 @@ class HistoriesController < ApplicationController
     @history = History.find(params[:id])
   end
 
+  def create_from_query
+    f = F.criteria.id(params[:query_f_id]).first
+    @history = History.new(:food => food, :user => current_user)
+    
+    if @history.save
+      redirect_to(@history, :notice => 'Historical entry created')
+    else
+      redirect_to(:action => "index", :notice => 'Error creating an entry in history')
+    end
+  end
+
+
   # POST /histories
   # POST /histories.xml
   def create
-    @diary_entry = History.new(params[:diary_entry])
+    @history = History.new(params[:history])
+    @history.user = current_user
 
     respond_to do |format|
       if @history.save
