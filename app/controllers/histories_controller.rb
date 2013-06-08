@@ -46,7 +46,7 @@ class HistoriesController < ApplicationController
     @history = History.new(:food => food, :user => current_user)
     
     if @history.save
-      redirect_to(@history, :notice => 'Historical entry created')
+      redirect_to(edit_history_path(@history), :notice => 'Historical entry created')
     else
       redirect_to(:action => "index", :notice => 'Error creating an entry in history')
     end

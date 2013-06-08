@@ -1,7 +1,26 @@
-#diary {
+#History {
+
   .entry {
+    padding: 10px;
     border-bottom: 2px solid #BABABA;
+    @include grid(14,16);
     @include grid-prefix(2);
+    
+    .info {
+      @include grid(12, 16);
+      @include alpha;
+    }
+    
+    .actions {
+      @include grid(2, 16);
+      @include omega;
+      margin-top: 20px;
+    }
+    
+    a {
+      text-decoration: none;
+      color: #008E40;
+    }
     
     h6 {
       color: #008E40;
