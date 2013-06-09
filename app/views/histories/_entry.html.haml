@@ -1,0 +1,10 @@
+.entry
+  .info
+    - if entry_counter == 0
+      = render :partial => 'form', :locals => {:entry => entry}
+    - else
+      %h6= link_to entry.f.name, edit_history_entry_path(entry)
+      %p= entry.note
+      .created_at= "ate #{time_ago_in_words entry.created_at} ago"
+  .actions
+    = link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete

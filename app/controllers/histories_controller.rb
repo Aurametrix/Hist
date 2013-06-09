@@ -46,7 +46,7 @@ class HistoriesController < ApplicationController
     @history = History.new(:food => food, :user => current_user)
     
     if @history.save
-      redirect_to(edit_history_path(@history), :notice => 'Historical entry created')
+      redirect_to(:action => "index", :notice => 'Historical entry created')
     else
       redirect_to(:action => "index", :notice => 'Error creating an entry in history')
     end
@@ -77,7 +77,7 @@ class HistoriesController < ApplicationController
 
     respond_to do |format|
       if @history.update_attributes(params[:diary_entry])
-        format.html { redirect_to(@history, :notice => 'History was successfully updated.') }
+        flash[:notice] = "Historical entry was successfully updated."
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

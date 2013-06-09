@@ -1,16 +1,14 @@
-= form_for @history do |f|
-  -if @history.errors.any?
+= form_for entry do |f|
+  -if entry.errors.any?
     #errorExplanation
       %h2= "#{pluralize(@history.errors.count, "error")} prohibited this history from being saved:"
       %ul
         - @history.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.hidden_field :f_id
+  %h6= entry.food.name
+  = f.hidden_field :f_id
+  = f.text_field :note, :placeholder => "describe in your own words (optional)"
+  = f.submit 'Update'
+  .created_at= time_ago_in_words entry.created_at
 
-  .field
-    = f.label :note
-    = f.text_field :note
-  .actions
-    = f.submit 'Save'

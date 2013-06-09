@@ -11,6 +11,14 @@
       @include alpha;
     }
     
+    input[type=text] { 
+      border: 2px solid #C0C0C0;
+      @include border-radius(4px, 4px);
+      font-size: 20px;
+      width: 500px;
+    }
+
+
     .actions {
       @include grid(2, 16);
       @include omega;
