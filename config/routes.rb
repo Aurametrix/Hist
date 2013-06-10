@@ -4,6 +4,8 @@ AAA::Application.routes.draw do
   
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout'}  
 
+  match 'history' => 'histories#index', :as => 'user_root'
+
   get "ints/new"
 
   get "search/index"
