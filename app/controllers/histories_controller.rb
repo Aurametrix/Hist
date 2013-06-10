@@ -1,6 +1,8 @@
 class HistoriesController < ApplicationController
   before_filter :authenticate_user!
 
+  before_filter :valid_f_id, :only => :create_from_query
+
   # GET /histories
   # GET /histories.xml
   def index
@@ -97,4 +99,12 @@ class HistoriesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+
+  private
+    def valid_f_id
+      if params[:query_f_id].blank?
+        flash[:alert] = "Invalid entry, please select from drop down"
+        redirect_to :action => "index"
+      end
+    end
+ end

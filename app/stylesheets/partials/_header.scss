@@ -74,6 +74,11 @@
     font-weight: normal;
     line-height: 1.2em;
     text-align: center;
+
+    &.alert {
+      color: red;
+    }
+
     
     p {
       display: inline;
