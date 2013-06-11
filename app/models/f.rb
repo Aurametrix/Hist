@@ -7,6 +7,11 @@ class F
 
   embeds_many :ints
 
+  references_many :children, :class_name => "F", :foreign_key => "parent_id"
+  referenced_in :parent, :class_name => "F"
+  
+  before_save :update_category, :update_parent
+  
   accepts_nested_attributes_for :ints, :allow_destroy => true
     :reject_if => proc { |attrs| (attrs['_destroy'] == '1' and attrs['id'].blank?) or attrs['f_id'].blank?}
   validates :name, :presence => true, :uniqueness => true
@@ -15,11 +20,26 @@ class F
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
   def available_categories
-    F.all.order_by(:name.asc).reject {|f| f.name == self.name}
+    F.all_by_name.reject {|f| f.name == self.name}
   end
 
-  def self.all
-    order_by(:name.asc)
+  class << self
+    def all_by_name
+      ascending(:name)
+    end
+  end
+  
+  def update_category
+    self.category = self.parent.name unless parent.nil?
+  end
+
+  def update_parent
+    if self.parent.nil?
+      p = F.criteria.where(:name => self.category).first
+      self.parent = p
+    end
+
+
   end
 
 end

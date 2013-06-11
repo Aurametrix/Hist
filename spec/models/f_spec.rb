@@ -37,5 +37,13 @@ describe F do
       
       fs.should have(2).entries
     end
+
+    it "should set parent" do
+      @headache.parent = @pain
+      @headache.save
+      
+      F.criteria.id(@headache.id).first.parent.id.should eq @pain.id
+    end
+
   end
 end

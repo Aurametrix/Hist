@@ -14,7 +14,8 @@
     = f.text_field :type
   .field
     = f.label :category
-    = select("f", "category", @f.available_categories.collect {|f| [ f.name, f.name ]}, {:prompt => 'Select Category'})
+    = select("f", "parent_id", @food.available_categories.collect {|f| [ f.name, f.id ]}, {:prompt => 'Select Category'})
+
   .field
     = f.label :description
     = f.text_field :description
