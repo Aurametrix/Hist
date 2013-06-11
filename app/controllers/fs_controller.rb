@@ -2,7 +2,7 @@ class fsController < ApplicationController
   # GET /fs
   # GET /fs.xml
   def index
-    @fs = f.all
+    @fs = F.all_by_name
 
     respond_to do |format|
       format.html # index.html.erb
