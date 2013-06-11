@@ -14,7 +14,7 @@ AAA::Application.routes.draw do
     resources :ints
   end
   
-  root :to => 'search#index'
+  root :to => 'histories#index'
 
 # The priority is based upon order of creation:
 # first created -> highest priority.

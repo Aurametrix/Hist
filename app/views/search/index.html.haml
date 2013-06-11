@@ -1,6 +1,7 @@
 #search
-  - form_tag('/search/find') do
-    = text_field_tag 'query', nil, :placeholder => "enter item name"
+  = form_tag create_from_query_histories_path, :remote => true, :id => "search_form" do
+    = text_field_tag :query, nil, :placeholder => "enter item name"
+    = hidden_field_tag :query_food_id
     / = submit_tag 'Find'
 #wedge 
 .clear

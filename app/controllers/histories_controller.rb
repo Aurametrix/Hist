@@ -47,10 +47,15 @@ class HistoriesController < ApplicationController
     f = F.criteria.id(params[:query_f_id]).first
     @history = History.new(:food => food, :user => current_user)
     
-    if @history.save
-      redirect_to(:action => "index", :notice => 'Historical entry created')
-    else
-      redirect_to(:action => "index", :notice => 'Error creating an entry in history')
+    respond_to do |format|
+      if @history.save
+        flash[:notice] = "Historical entry created"
+        format.js {render :action => "edit", :layout => false}
+        format.html { redirect_to(:action => "index", :edit => true) }
+      else
+        format.js { render :nothing => true }
+        format.html {redirect_to(:action => "index", :notice => 'Error creating diary entry')}
+      end
     end
   end
 
