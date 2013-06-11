@@ -8,7 +8,7 @@ class F
   embeds_many :ints
 
   accepts_nested_attributes_for :ints, :allow_destroy => true
-
+    :reject_if => proc { |attrs| (attrs['_destroy'] == '1' and attrs['id'].blank?) or attrs['f_id'].blank?}
   validates :name, :presence => true, :uniqueness => true
   validates_associated :ingredients
   
