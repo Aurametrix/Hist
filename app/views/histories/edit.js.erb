@@ -2,6 +2,5 @@
   $('#notices').html("<li><p><%= escape_javascript notice %> </p></li>").hide().slideDown('fast').delay(1000).slideUp('fast');
 <% end %>
 
-<% flash.delete(:notice) %>
 
 $("#history").prepend("<%= escape_javascript render 'edit_form' %>");
