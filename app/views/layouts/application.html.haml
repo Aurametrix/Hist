@@ -10,11 +10,10 @@
     = csrf_meta_tag
     
   %body
-    - if notice or alert
-      %ul#notices
-        - unless notice.nil?
-          %li.notice= notice
-        - unless alert.nil?
+    %ul#notices
+      - unless notice.nil?
+        %li.notice= notice
+      - unless alert.nil?
           %li.alert= alert
 
     #header
