@@ -46,4 +46,32 @@ describe F do
     end
 
   end
+
+
+describe "action verb" do
+    before :each do
+      @food = Factory(:f, :action => "happen")
+      @headache = Factory(:headache, :parent => @symptom, :action => nil)
+    end
+    
+    it "should be parents action when action not set on model itself" do
+      @headache.action.should eq "has"
+    end
+    
+    it "should be action on model itself when set" do
+      drink = Factory(:marathon, :parent => @running, :action => "did")
+      drink.action.should eq "do"
+    end
+    
+    it "should be nil if no action present for itself or parents" do
+      @food.action = nil
+      @weirdthing.action.should be_nil
+    end
+    
+    it "should be nil when model has no action and no parent" do
+      drink = Factory(:drink, :parent => nil, :action => nil)
+      veryweird.action.should be_nil
+    end
+  end
+
 end

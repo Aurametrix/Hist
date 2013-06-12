@@ -3,6 +3,7 @@ Factory.define :f, :class => F do |f|
   f.type "input"
   f.description "something"
   f.category nil
+  f.action "happen"
 end
 
 Factory.define :headache , :class => F do |f|
@@ -10,4 +11,5 @@ Factory.define :headache , :class => F do |f|
   f.type "vague symptom"
   f.description "pain in the head"
   f.category "medical"
+  f.action "has" 
 end
