@@ -4,6 +4,6 @@
   .info
     %h6= link_to entry.f.name, edit_history_entry_path(entry)
     %p= entry.note
-    .created_at= "happened #{time_ago_in_words entry.created_at} ago"
+    .created_at= display_action_taken_for entry
   .actions
     = link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete

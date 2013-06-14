@@ -20,8 +20,10 @@
     = f.label :description
     = f.text_field :description
 
-    = link_to "+", new_food_ingredient_path(@food.id), :remote => true
-
+.field
+    = f.label :action, "action wording"
+    = f.text_field :action
+    
   .field
     Includes:     
       - f.fields_for :ints  do |inf|
@@ -29,10 +31,6 @@
   
     = link_to "+", new_f_int_path(@f.id), :remote => true
     #ints children
-
-  .actions
-    = f.submit 'Save'
-
 
   .actions
     = f.submit 'Save'

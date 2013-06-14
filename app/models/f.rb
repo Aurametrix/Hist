@@ -27,8 +27,8 @@ class F
   alias_method :basic_action, :action
   
   def action
-    if self.basic_action.nil?
-      self.parent.action unless self.parent.nil?
+    if self.basic_action.blank?
+      self.parent.action unless self.parent.blank?
     else
       self.basic_action
     end

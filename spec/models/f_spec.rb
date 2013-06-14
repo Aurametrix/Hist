@@ -68,6 +68,12 @@ describe "action verb" do
       @weirdthing.action.should be_nil
     end
     
+    it "should be nil if action set is empty string" do
+      @food.action = ""
+      @cereal.action = ""
+      @cereal.action.should be_nil
+    end
+
     it "should be nil when model has no action and no parent" do
       drink = Factory(:drink, :parent => nil, :action => nil)
       veryweird.action.should be_nil
