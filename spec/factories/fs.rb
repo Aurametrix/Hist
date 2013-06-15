@@ -10,6 +10,5 @@ Factory.define :headache , :class => F do |f|
   f.name "headache"
   f.type "vague symptom"
   f.description "pain in the head"
-  f.category "medical"
   f.action "has" 
 end
