@@ -78,6 +78,15 @@ describe "action verb" do
       drink = Factory(:drink, :parent => nil, :action => nil)
       veryweird.action.should be_nil
     end
+
+    it "travel up the graph to find the right word" do
+      utensils = Factory(:utensils, :parent => @household_article)
+      spoon = Factory(:spoon, :parent => utensils)
+      golden_spoon = Factory(:spoon, :name => "golden spoon", :parent => spoon)
+      
+      golden_apple.action.should eq "eat"
+    end
+
   end
 
 end

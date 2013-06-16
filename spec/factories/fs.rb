@@ -6,6 +6,12 @@ Factory.define :f, :class => F do |f|
   f.action "happen"
 end
 
+Factory.define :something, :class => F do |f|
+  f.name "something"
+  f.type "action"
+  f.description "generic thing "
+end
+
 Factory.define :headache , :class => F do |f|
   f.name "headache"
   f.type "vague symptom"
