@@ -4,6 +4,12 @@
 %p
   %b Type:
   = @f.type
+
+ %p
+   %b Category:
+   = link_to @f.category, @f.parent unless @f.category.blank?
+ %p
+   %b Description:
 %p
   %b Description:
   = @f.description
@@ -12,6 +18,13 @@
   %b Includes
   - @f.ints.each do |int|
     = int.name
+
+    
+%p
+  %b Children
+  - @food.children.each do |child|
+    = link_to child.name, child
+
 
 = link_to 'Edit', edit_f_path(@f)
 \|
