@@ -18,6 +18,8 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
+  before_destroy :destroy_children
+
   def available_categories
     F.all_by_name.reject {|f| f.name == self.name}
   end
@@ -42,5 +44,10 @@ class F
     end
   end
   
+
+  private
+    def destroy_children
+      self.children.destroy_all
+    end
 
 end
