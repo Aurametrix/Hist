@@ -6,4 +6,6 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-sweating = F.create(:name => "sweating", :type => "reaction")
+sweating = F.create(:name => "sweating", :type => "reaction", :action =? "had")
+patient = Patient.create(:email => "patient@hospital.com", :password => "secretpwd")
+History.create(:patient => patient, :complaints => lotsof, :note => "gained weight too"))
