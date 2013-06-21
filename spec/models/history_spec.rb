@@ -22,5 +22,12 @@ it "should require events" do
     
     History.where(:quantities => 2).should have(1).entries
   end
+
+  it "should initially set time of the event to the time of creation" do
+    entry = History.create(:note => "happened at time", :user => @user1, :catastrophe => @fainting, :quatntities => 5)
+    
+    entry.happened_at.should_not be_nil
+  end
+
   
 end

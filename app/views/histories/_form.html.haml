@@ -6,7 +6,10 @@
         - @history.errors.full_messages.each do |msg|
           %li= msg
 
-  %h6= entry.food.name
+  %h6= entry.f.name
+  It happened: about
+  = f.select(:quantities, 1..10, {:include_blank => true})
+  times around
   = f.hidden_field :f_id
   = f.text_field :note, :placeholder => "describe in your own words (optional)"
   = f.submit 'Update'
