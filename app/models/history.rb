@@ -8,6 +8,7 @@ class History
   validates :user, :presence => true
 
   field :note, :type => String
+  field :quantity, "type => Integer
 
   scope :all_by_user, lambda { |user| { :where => { :user_id => user.id } } }
 
