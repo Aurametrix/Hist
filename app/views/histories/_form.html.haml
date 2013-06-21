@@ -1,3 +1,6 @@
+- content_for :extra_javascripts do
+  = javascript_include_tag 'datehelper'
+  
 = form_for entry do |f|
   -if entry.errors.any?
     #errorExplanation
@@ -10,6 +13,12 @@
   It happened: about
   = f.select(:quantities, 1..10, {:include_blank => true})
   times around
+
+  / = f.datetime_select(:happened_at)
+  = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker", :size => 30
+  = select(:happened, :hour, 00..12)
+  = select(:happened, :meridian, %w[AM PM])
+
   = f.hidden_field :f_id
   = f.text_field :note, :placeholder => "describe in your own words (optional)"
   = f.submit 'Update'

@@ -1,3 +1,6 @@
+content_for :extra_javascripts do
+= javascript_include_tag 'search'
+
 #search
   = form_tag create_from_query_histories_path, :remote => true, :id => "search_form" do
     = text_field_tag :query, nil, :placeholder => "enter item name"

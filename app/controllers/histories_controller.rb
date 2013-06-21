@@ -19,6 +19,10 @@ class HistoriesController < ApplicationController
   def show
     @history = History.find(params[:id])
 
+    day_happened = params[:day_happened]
+    hour_happened = params[:hour_happened]
+    params[:history]["happened_at"] = DateTime.strptime("#{day_happened} EST", "%m/%d/%Y %z").to_time.utc
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @history }

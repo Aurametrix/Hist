@@ -16,8 +16,12 @@
       @include border-radius(4px, 4px);
       font-size: 20px;
       width: 500px;
-    }
 
+      &#datapicker {
+      width: 150px;
+      }
+
+    }
 
     .actions {
       @include grid(2, 16);
