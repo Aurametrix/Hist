@@ -19,9 +19,7 @@ class HistoriesController < ApplicationController
   def show
     @history = History.find(params[:id])
 
-    day_happened = params[:day_happened]
-    hour_happened = params[:hour_happened]
-    params[:history]["happened_at"] = DateTime.strptime("#{day_happened} EST", "%m/%d/%Y %z").to_time.utc
+    params[:history]["happened_at"] = convert_to_utc params[:happened]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -116,4 +114,13 @@ class HistoriesController < ApplicationController
         redirect_to :action => "index"
       end
     end
+
+    def convert_to_utc(hash)
+      day = hash["day"]
+      hour = hash["hour"]
+
+      DateTime.strptime("#{day} #{hour} #{Time.now.zone}", "%m/%d/%Y %H %z").to_time.utc
+    end
+
+
  end

@@ -11,5 +11,19 @@ require 'spec_helper'
 #   end
 # end
 describe HistoriesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "hours of the day" do
+    
+    it "should have 24 entries" do
+      hours = helper.hours_of_the_day
+    
+      hours.should have(24).entries
+    end
+  
+    it "should have 12:00 am as first element" do
+      hours = helper.hours_of_the_day
+      hours[0][0].should eq "12:00 am"
+      hours[0][1].should eq "00"
+    end
+  
+  end
 end

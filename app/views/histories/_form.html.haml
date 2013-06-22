@@ -16,8 +16,7 @@
 
   / = f.datetime_select(:happened_at)
   = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker", :size => 30
-  = select(:happened, :hour, 00..12)
-  = select(:happened, :meridian, %w[AM PM])
+  = select(:happened, :hour, hours_of_the_day)
 
   = f.hidden_field :f_id
   = f.text_field :note, :placeholder => "describe in your own words (optional)"
