@@ -15,8 +15,8 @@
   times around
 
   / = f.datetime_select(:happened_at)
-  = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker", :size => 30
-  = select(:happened, :hour, hours_of_the_day)
+  = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker",
+  = select(:happened, :hour, hours_of_the_day, :selected => select_hour(entry.happened_at))
 
   = f.hidden_field :f_id
   = f.text_field :note, :placeholder => "describe in your own words (optional)"

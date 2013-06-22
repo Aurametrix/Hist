@@ -21,4 +21,12 @@ module HistoriesHelper
     end
   end
 
+  def select_hour(time)
+    if time.nil?
+      "00"
+    else
+      "%02d" % time.hour
+    end
+  end
+
 end
