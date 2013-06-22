@@ -119,7 +119,7 @@ class HistoriesController < ApplicationController
       day = hash["day"]
       hour = hash["hour"]
 
-      DateTime.strptime("#{day} #{hour} #{Time.now.zone}", "%m/%d/%Y %H %z").to_time.utc
+      DateTime.strptime("#{day} #{hour} #{Time.now.zone}", "%m/%d/%Y %H %z").to_time.utc unless day.blank?
     end
 
 

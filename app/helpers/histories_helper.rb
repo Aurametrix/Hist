@@ -4,7 +4,7 @@ module HistoriesHelper
   end
 
   def display_date(time)
-    time.strftime("%m/%d/%Y")
+    time.strftime("%m/%d/%Y") unless time.nil?
   end
 
 
