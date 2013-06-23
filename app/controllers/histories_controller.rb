@@ -19,7 +19,7 @@ class HistoriesController < ApplicationController
   def show
     @history = History.find(params[:id])
 
-    params[:history]["happened_at"] = convert_to_utc params[:happened]
+    params[:history]["happened_at"] = convert_to_utc params[:happened] unless params[:happened].nil?
 
     respond_to do |format|
       format.html # show.html.erb

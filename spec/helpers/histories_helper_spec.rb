@@ -24,6 +24,26 @@ describe HistoriesHelper do
       hours[0][0].should eq "12:00 am"
       hours[0][1].should eq "00"
     end
-  
   end
+
+describe "datetime in words" do
+    it "should display 9 AM on September 12, 2010" do
+      t = Time.parse("2010-09-12 09:00:00")
+    
+      helper.datetime_in_word(t).should eq "9 AM on September 12, 2010"
+    end
+  
+    it "should display 12 AM on September 20, 2010" do
+      t = Time.parse("2010-09-20 00:00:00")
+    
+      helper.datetime_in_word(t).should eq "12 AM on September 20, 2010"
+    end
+    
+    it "should display 11 PM on September 20, 2010" do
+      t = Time.parse("2010-09-20 23:00:00")
+    
+      helper.datetime_in_word(t).should eq "11 PM on September 20, 2010"
+    end
+  end
+
 end
