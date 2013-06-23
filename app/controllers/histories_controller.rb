@@ -6,7 +6,7 @@ class HistoriesController < ApplicationController
   # GET /histories
   # GET /histories.xml
   def index
-    @histories = History.all_by_user(current_user).order_by_date
+    @histories = History.all_by_user(current_user).order_by_happened_at
 
     respond_to do |format|
       format.html # index.html.erb

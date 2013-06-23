@@ -15,13 +15,13 @@ class History
 
   before_create :generate_happened_at
 
-  def self.order_by_date 
+  def self.order_by_happened_at
     criteria.order_by(:created_at.desc)
   end
 
   private
      def generate_happened_at
-       self.happened_at = Time.now
+       self.happened_at = Time.now if self.happened_at.nil?
      end
 
 end

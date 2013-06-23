@@ -12,7 +12,7 @@ describe HistoriesController do
 
   describe "GET index" do
     it "assigns all historries as @histories" do
-      History.stub(:all_by_user) { mock(History, {:order_by_date => [mock_history]}) }
+      History.stub(:all_by_user) { mock(History, {:order_by_happened_at => [mock_history]}) }
       get :index
       assigns(:histories).should eq([mock_history])
     end
