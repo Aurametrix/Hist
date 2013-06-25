@@ -18,6 +18,7 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
+  before_save :remove_blank_action
   before_destroy :destroy_children
 
   def available_categories
@@ -49,5 +50,16 @@ class F
     def destroy_children
       self.children.destroy_all
     end
+
+    
+    def remove_blank_action
+      unless self.basic_action.nil?
+        if self.basic_action.name.blank? and self.basic_action.measured_in.blank?
+          self.action = nil
+        end
+      end
+      
+    end
+
 
 end

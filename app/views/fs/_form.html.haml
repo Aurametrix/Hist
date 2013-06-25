@@ -20,9 +20,13 @@
     = f.label :description
     = f.text_field :description
 
-.field
-    = f.label :action, "action wording"
-    = f.text_field :action, :value => @f.basic_action
+  .field
+    = f.fields_for :action, @f.basic_action do |af|
+      = af.label :name, "action wording"
+      = af.text_field :name
+
+      = af.label :measured_in, "measured in"
+      = af.text_field :measured_in
     
   .field
     Includes:     

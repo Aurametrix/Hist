@@ -137,7 +137,7 @@ it "should be parents action when action not set on model itself" do
     end
 
 
-describe "action verb" do
+describe "action" do
     before :each do
       @happened_action = Factory.build(:happened_action => "happen")
       @headache_action = Factory.build(:happened_action, :name => had)
@@ -147,6 +147,14 @@ describe "action verb" do
       @headache.action.name.should eq @happened_action_name
     end
     
+    it "should nil out action if action name and measured in are blank" do
+      @headache.action = Action.new
+      @headache.save
+      
+      @headache.basic_action.should be_nil
+    end
+
+
     it "should be action on model itself when set" do
       drink = Factory(:marathon, :parent => @running, :action => "did")
       drink.action.should eq "do"
