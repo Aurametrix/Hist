@@ -139,12 +139,12 @@ it "should be parents action when action not set on model itself" do
 
 describe "action verb" do
     before :each do
-      @food = Factory(:f, :action => "happen")
-      @headache = Factory(:headache, :parent => @symptom, :action => nil)
+      @happened_action = Factory.build(:happened_action => "happen")
+      @headache_action = Factory.build(:happened_action, :name => had)
     end
     
     it "should be parents action when action not set on model itself" do
-      @headache.action.should eq "has"
+      @headache.action.name.should eq @happened_action_name
     end
     
     it "should be action on model itself when set" do
@@ -157,11 +157,6 @@ describe "action verb" do
       @weirdthing.action.should be_nil
     end
     
-    it "should be nil if action set is empty string" do
-      @food.action = ""
-      @cereal.action = ""
-      @cereal.action.should be_nil
-    end
 
     it "should be nil when model has no action and no parent" do
       drink = Factory(:drink, :parent => nil, :action => nil)
@@ -173,7 +168,7 @@ describe "action verb" do
       spoon = Factory(:spoon, :parent => utensils)
       golden_spoon = Factory(:spoon, :name => "golden spoon", :parent => spoon)
       
-      golden_apple.action.should eq "eat"
+      golden_apple.action.name.should eq @f.action.name
     end
 
   end
