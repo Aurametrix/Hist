@@ -15,4 +15,12 @@ module ApplicationHelper
     end
   end
   
+  def pluralize_no_count(count, word)
+    if count == 1
+      word.singularize
+    else
+      word.pluralize
+    end
+  end
+  
 end
