@@ -10,14 +10,29 @@
     %th
 
   - @fs.each do |f|
-    %tr
-      %td= f.name
-      %td= f.type
-      %td= f.description
-      %td= link_to 'Show', f
-      %td= link_to 'Edit', edit_f_path(f)
-      %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
+    - if food.parent.nil?
+      %tr.top_level
+        %td= f.name
+        %td= f.type
+        %td= f.category
+        %td= f.description
+        %td= link_to 'Show', f
+        %td= link_to 'Edit', edit_f_path(food)
+        %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
+    - else
+      %tr
+        %td= f.name
+        %td= f.type
+        %td= f.category
+        %td= f.description
+        %td= link_to 'Show', f
+        %td= link_to 'Edit', edit_f_path(f)
+        %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
 
 %br
 
 = link_to 'New Item', new_f_path
+
+%br
+%br
+%p top level items are in red
