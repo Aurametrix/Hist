@@ -10,24 +10,18 @@
     %th
 
   - @fs.each do |f|
-    - if food.parent.nil?
-      %tr.top_level
+    %tr
+      - if top_level f
+        %td.top_level= f.name
+      - else
         %td= f.name
-        %td= f.type
-        %td= f.category
-        %td= f.description
-        %td= link_to 'Show', f
-        %td= link_to 'Edit', edit_f_path(food)
-        %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
-    - else
-      %tr
-        %td= f.name
-        %td= f.type
-        %td= f.category
-        %td= f.description
-        %td= link_to 'Show', f
-        %td= link_to 'Edit', edit_f_path(f)
-        %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
+      %td= f.name
+      %td= f.type
+      %td= f.category
+      %td= f.description
+      %td= link_to 'Show', f
+      %td= link_to 'Edit', edit_f_path(food)
+      %td= link_to 'Destroy', f, :confirm => 'Are you sure?', :method => :delete if f.children.blank?
 
 %br
 
