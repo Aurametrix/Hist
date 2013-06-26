@@ -10,9 +10,9 @@
           %li= msg
 
   %h6= entry.f.name
-  It #{entry.f.action.name} about
+  = "I observed #{entry.f.action.name} about" unless entry.f.action.nil?
   = f.select(:quantities, 1..10, {:include_blank => true})
-  = "#{pluralize(entry.quantities, entry.f.action.measured_in)} around"
+  = "#{pluralize(entry.quantities, entry.f.action.measured_in)} around" unless entry.f.action.nil?
 
   = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker",
   = select(:happened, :hour, hours_of_the_day, :selected => select_hour(entry.happened_at))
