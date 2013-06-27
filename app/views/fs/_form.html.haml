@@ -21,7 +21,7 @@
     = f.text_field :description
 
   .field
-    = f.fields_for :action, @f.basic_action do |af|
+    = f.fields_for :action, @f.action do |af|
       = af.label :name, "action wording"
       = af.text_field :name
 

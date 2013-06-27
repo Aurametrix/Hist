@@ -138,7 +138,7 @@ it "should be parents action when action not set on model itself" do
 
   describe "update attributes" do
     it "should remove blank action" do
-      @symptom = Factory.create(:symptom)
+      @symptom = Factory.create(:symptom, :action => Factory.build(:happened_action))
       @headache = Factory.create(:headache, :parent => @symptom)
       @migraine = Factory.create(:migraine, :name => "migraine", :parent => @headache)
       
@@ -149,7 +149,6 @@ it "should be parents action when action not set on model itself" do
       updated_record = F.find(@migraine.id)
       updated_record.name.should eq "very strange symptom"
       updated_record.type.should eq "new type"
-      updated_record.basic_action.should be_nil 
     end
   end
   
@@ -160,7 +159,7 @@ describe "action" do
     end
     
     it "should be parents action when action not set on model itself" do
-      @headache.action.name.should eq @happened_action_name
+      @headache.top_level_action.name.should eq @happened_action_name
     end
     
     it "should nil out action if action name and measured in are blank" do

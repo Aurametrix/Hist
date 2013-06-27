@@ -18,8 +18,8 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
-  before_update :remove_blank_action
-  before_save :remove_blank_action
+  before_save :remove_empty_action
+  before_update :remove_empty_action
   before_destroy :destroy_children
 
   def available_categories
@@ -28,11 +28,11 @@ class F
 
   alias_method :basic_action, :action
   
-  def action
-    if self.basic_action.nil?
-      self.parent.action unless self.parent.blank?
+  def top_level_action
+    if self.action.nil? or self.action.name.blank?
+      self.parent.top_level_action unless self.parent.blank?
     else
-      self.basic_action
+      self.action
     end
   end
 
@@ -53,9 +53,9 @@ class F
     end
 
     
-    def remove_blank_action
-      unless self.basic_action.nil?
-        if self.basic_action.name.blank? and self.basic_action.measured_in.blank?
+    def remove_empty_action
+      unless self.action.nil?
+        if self.action.name.blank?
           self.action = nil
         end
       end

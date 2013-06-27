@@ -1,6 +1,6 @@
 module HistoriesHelper
   def display_action_taken_for(entry)
-    "#{entry.f.action.name} #{pluralize(convert_to_int(entry.quantities), entry.f.action.measured_in)} around #{datetime_in_word entry.happened_at}" unless entry.f.action.nil?
+    "#{entry.f.top_level_action.name} #{pluralize(convert_to_int(entry.quantities), entry.f.top_level_action.measured_in)} around #{datetime_in_word entry.happened_at}" unless entry.f.top_level_action.nil?
   end
 
   def datetime_in_word (time)

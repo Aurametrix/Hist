@@ -10,9 +10,9 @@
           %li= msg
 
   %h6= entry.f.name
-  = "I observed #{entry.f.action.name} about" unless entry.f.action.nil?
+  = "I observed #{entry.f.top_level_action.name} about" unless entry.f.top_level_action.nil?
   = f.text_field :quantities, :id => "quantities", :value => convert_to_int(entry.quantities)
-  = "#{pluralize_no_count(entry.quantities, entry.f.action.measured_in)} around" unless entry.f.action.nil?
+  = "#{pluralize_no_count(entry.quantities, entry.f.top_level_action.measured_in)} around" unless entry.f.action.nil?
 
   = text_field :happened, :day, :value => diplay_date(entry.eaten_at), :id => "datepicker",
   = select(:happened, :hour, hours_of_the_day, :selected => select_hour(entry.happened_at))
