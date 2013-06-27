@@ -25,7 +25,7 @@ module HistoriesHelper
   end
 
   def convert_to_int(number)
-    return number == 1? 1 : number
+    return number == 1 ? 1 : number
   end  
 
   def select_hour(time)

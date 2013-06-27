@@ -26,6 +26,27 @@ describe HistoriesHelper do
     end
   end
 
+  describe "display action taken for entry" do
+    before :each do
+      @user = Factory.create(:valid_user)
+      @food = Factory.create(:f, :action => Factory(:happened_action)) 
+      @entry = History.new(:note => "test event", :f => @f, :user => @user, :happened_at => Time.parse("2013-06-27 13:00:00"))
+    end
+    
+    it "should show singular form when quantity is 1.0" do
+      @entry.quantities = 1.0
+      
+      helper.display_action_taken_for(@entry).should eq "happened 1 times around 1 PM on June 27, 2013"
+    end
+    
+    it "should show plural form when serving is 0.5" do
+      @entry.servings = 0.5
+      
+      helper.display_action_taken_for(@entry).should eq "ate 0.5 servings around 1 PM on June 27, 2013"
+    end
+  end
+
+
 describe "datetime in words" do
     it "should display 9 AM on September 12, 2010" do
       t = Time.parse("2010-09-12 09:00:00")
