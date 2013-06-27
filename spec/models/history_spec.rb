@@ -48,5 +48,16 @@ it "should find by user" do
     entry.happened_at.should_not be_nil
   end
 
+  describe "quantities" do
+    it "should default to 1" do
+      History.new.quantities.should eq 1
+    end
+    
+    it "can be set to decimal" do
+      entry = DiaryEntry.create(:note => "time of occurence", :user => @user1, :f => @sneezing, :quantities => 0.5)
+      
+      entry.quantities.should eq 0.5
+    end
+  end
   
 end
