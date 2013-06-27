@@ -136,7 +136,23 @@ it "should be parents action when action not set on model itself" do
       @walking.action.should be_nil
     end
 
-
+  describe "update attributes" do
+    it "should remove blank action" do
+      @symptom = Factory.create(:symptom)
+      @headache = Factory.create(:headache, :parent => @symptom)
+      @migraine = Factory.create(:migraine, :name => "migraine", :parent => @headache)
+      
+      params = {:f =>{"name"=>"very strange symptom", "type"=>"new type", "parent_id"=>@headache.id.to_s, "description"=>"aches and pains", "action"=>{"name"=>"", "measured_in"=>""}}}
+      
+      @migraine.update_attributes(params[:f])
+      
+      updated_record = F.find(@migraine.id)
+      updated_record.name.should eq "very strange symptom"
+      updated_record.type.should eq "new type"
+      updated_record.basic_action.should be_nil 
+    end
+  end
+  
 describe "action" do
     before :each do
       @happened_action = Factory.build(:happened_action => "happen")

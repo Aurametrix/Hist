@@ -18,6 +18,7 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
+  before_update :remove_blank_action
   before_save :remove_blank_action
   before_destroy :destroy_children
 
