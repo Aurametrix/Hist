@@ -6,6 +6,7 @@ class History
   
   validates :f, :presence => true
   validates :user, :presence => true
+  validates :quantities, :numericality => true
 
   field :note, :type => String
   field :quantity, "type => Float, :default => 1.0
