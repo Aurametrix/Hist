@@ -1,11 +1,14 @@
-class Ingredient
+class Int
   include Mongoid::Document
-  referenced_in :food
-  embedded_in :food, :inverse_of => :ingredients
-  validates_presence_of :food_id
+  referenced_in :f
+  embedded_in :f, :inverse_of => :ints
+  validates_presence_of :f_id
   
+  field :quantity, :type => Float, :default => 1.0
+  validates_presence_of :f_id
+
   def name
-    f = Food.criteria.id(self.food_id).first
+    f = F.criteria.id(self.f_id).first
     f.name
   end
 end

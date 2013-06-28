@@ -1,4 +1,5 @@
 .fields
-  /= f.text_field :name
   = f.select(:f_id, F.all.collect {|f| [ f.name, f.id ]}, {:prompt => 'Select Include'})
+  = f.label :quantity
+  = f.text_field :quantity
   = f.hidden_field(:_destroy) + link_to("remove", "javascript:void(0)", :class => "remove_child")
