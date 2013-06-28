@@ -25,7 +25,7 @@ class fsController < ApplicationController
   # GET /fs/new.xml
   def new
     @f = F.new
-
+    @f.build_extra_info if @f.extra_info.nil?
     #@f.ints.build
 
     respond_to do |format|
@@ -37,6 +37,7 @@ class fsController < ApplicationController
   # GET /fs/1/edit
   def edit
     @f = f.find(params[:id])
+    @f.build_extra_info if @f.extra_info.nil?
   end
 
   # POST /fs

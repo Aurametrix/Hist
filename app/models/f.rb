@@ -57,6 +57,9 @@ class F
     def remove_blank_extra_info
       unless self.extra_info.nil?
         self.extra_info.remove_blanks
+        if self.extra_info.first_name.blank? and self.extra_info.second_name.blank?
+          self.extra_info = nil;
+        end
       end
     end
 

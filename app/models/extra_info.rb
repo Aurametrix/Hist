@@ -10,7 +10,7 @@ class ExtraInfo
   embedded_in :f, :inverse_of => :extra_info
 
   def remove_blanks
-    self.first_variables = self.first_variables.reject {|item| item.blank?}
-    self.second_variables = self.second_variables.reject {|item| item.blank?}
+    self.first_variables = self.first_variables.reject {|item| item.blank?} unless self.first_variables.nil?
+    self.second_variables = self.second_variables.reject {|item| item.blank?} unless self.first_variables.nil?
   end
 end
