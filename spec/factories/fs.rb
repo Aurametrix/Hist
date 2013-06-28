@@ -15,4 +15,5 @@ Factory.define :headache , :class => F do |f|
   f.name "headache"
   f.type "vague symptom"
   f.description "pain in the head"
+  f.action { Factory.build(:happened_action) }
 end

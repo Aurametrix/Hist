@@ -6,6 +6,7 @@ class F
 
   embeds_many :ints
   embeds_one :action
+  embeds_one :extra_info, :class_name => "ExtraInfo"
 
   references_many :children, :class_name => "F", :foreign_key => "parent_id"
   referenced_in :parent, :class_name => "F"
