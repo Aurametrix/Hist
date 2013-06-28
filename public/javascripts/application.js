@@ -12,4 +12,14 @@ $(function() {
     return false;
   });
   
+  $(".new_first_option").click(function(){
+    var link = '<a href="#remove_var" class="remove_value">remove</a>';
+    var wrap_div = '<div class="extra_info_value">';
+    
+    $("#first_vars").append(wrap_div + '<input id="food_extra_info_first_variables__value" name="food[extra_info][first_variables][]" size="30" type="text"> ' + link + '</div>');
+  });
+  
+  $(".remove_value").live('click', function(){
+    $(this).parent().remove();
+  });
 });

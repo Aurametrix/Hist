@@ -14,7 +14,7 @@
     = f.text_field :type
   .field
     = f.label :category
-    = select("f", "parent_id", @food.available_categories.collect {|f| [ f.name, f.id ]}, {:prompt => 'Select Category'})
+    = select("f", "parent_id", @f.available_categories.collect {|f| [ f.name, f.id ]}, {:prompt => 'Select Category'})
 
   .field
     = f.label :description
@@ -34,7 +34,27 @@
         = render :partial => 'ints/form', :locals => { :f => inf }
   
     = link_to "+", new_f_int_path(@f.id), :remote => true
-    #ints children
+    
+  .field
+    Variables:
+    %br
+    = f.fields_for :extra_info, @f.extra_info do |ef|
+      = ef.label :first_name, "Name for Variable #1"
+      = ef.text_field :first_name
+      %br
+      =ef.label :first_variables, "Values:"
+      #first_vars
+        - @f.extra_info.first_variables.each do |var|
+          .extra_info_value
+            %input{:id=>"f_extra_info_first_variables__value", :name=>"f[extra_info][first_variables][]", :size=>"30", :type=>"text", :value => var}
+            = link_to "remove", "#remove_var", :class => "remove_value"
+      
+      %br
+      = link_to "+", "#new_var", :class => "new_first_option"
+      %br
+      %br
+      = ef.label :second_name, "Name for Variable #2"
+      = ef.text_field :second_name
 
   .actions
     = f.submit 'Save'
