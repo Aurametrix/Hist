@@ -1,0 +1,70 @@
+#main {
+  @include grid(10,16);
+}
+
+#right_nav {
+  @include grid(5,16);
+  @include grid-prefix(1);
+  @include omega;
+  margin-bottom: 1.5em;
+  
+  h2,
+  .body,
+  .footer {
+    background: #ffffff;
+    padding: 10px 12px;
+    margin-bottom: 0.5em;
+  }
+  
+   h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555555;
+    background: #ccc;
+  }
+  
+  .footer {
+    background: #e0e0e0;
+  }
+  
+  .auxillary {
+    float: right;
+  }
+  
+}
+
+.vertical-tabs {
+  background-color: #f7f7f7;
+  padding: 10px;
+  
+  a {
+    display: block;
+    color: #555555;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 4px;
+    margin-bottom: 2px;
+    text-decoration: none;
+    
+    &:hover {
+      background: #fff;
+      text-decoration: none;
+    }
+    
+    &.selected {
+      background: #e0e0e0;
+    }
+    
+  }
+  
+  a.disabled {
+    color: #999999;
+    
+    &:hover {
+      background: none;
+      text-decoration: none;
+    }
+    
+  }
+  
+}

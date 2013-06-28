@@ -1,7 +1,15 @@
-%h1 Editing items
+#main
+  %h1 Editing Entry
 
-= render 'form'
+  = render 'form'
 
-= link_to 'Show', @f
-\|
-= link_to 'Back', fs_path
+  = link_to 'Show', @f
+  \|
+  = link_to 'Back', fs_path
+
+#right_nav
+  %h2 Editor
+  #body
+    .vertical-tabs
+      %a{:href=> "#"} Info
+      %a{:href=> "#"} Varieties
