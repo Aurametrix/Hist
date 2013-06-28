@@ -3,6 +3,8 @@ class F
   field :name, :type => String
   field :type, :type => String
   field :description, :type => String
+  field :aliases, :type => String
+  field :tokens, :type => Array
 
   embeds_many :ints
   embeds_one :action
@@ -19,7 +21,7 @@ class F
   
   scope :name_starts_with, lambda { |name| where(:name => /^#{name}/i).order_by(:name.asc) }
 
-  before_save :remove_empty_action, :remove_blank_extra_info
+  before_save :remove_empty_action, :remove_blank_extra_info, :generate_tokens
   before_update :remove_empty_action, :remove_blank_extra_info
   before_destroy :destroy_children
 
@@ -53,6 +55,9 @@ class F
       self.children.destroy_all
     end
 
+    def generate_tokens
+      self.tokens = self.aliases.split(/,/).map{|s| s.strip} unless self.aliases.nil?
+    end
     
     def remove_blank_extra_info
       unless self.extra_info.nil?
