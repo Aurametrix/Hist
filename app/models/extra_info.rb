@@ -8,4 +8,9 @@ class ExtraInfo
   field :second_variables, :type => Array
   
   embedded_in :f, :inverse_of => :extra_info
+
+  def remove_blanks
+    self.first_variables = self.first_variables.reject {|item| item.blank?}
+    self.second_variables = self.second_variables.reject {|item| item.blank?}
+  end
 end

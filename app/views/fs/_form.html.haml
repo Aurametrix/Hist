@@ -44,10 +44,11 @@
       %br
       =ef.label :first_variables, "Values:"
       #first_vars
-        - @f.extra_info.first_variables.each do |var|
-          .extra_info_value
-            %input{:id=>"f_extra_info_first_variables__value", :name=>"f[extra_info][first_variables][]", :size=>"30", :type=>"text", :value => var}
-            = link_to "remove", "#remove_var", :class => "remove_value"
+        - unless @f.extra_info.first_variables.nil? 
+          -@f.extra_info.first_variables.each do |var|
+            .extra_info_value
+              %input{:id=>"f_extra_info_first_variables__value", :name=>"f[extra_info][first_variables][]", :size=>"30", :type=>"text", :value => var}
+              = link_to "remove", "#remove_var", :class => "remove_value"
       
       %br
       = link_to "+", "#new_var", :class => "new_first_option"
@@ -55,6 +56,15 @@
       %br
       = ef.label :second_name, "Name for Variable #2"
       = ef.text_field :second_name
-
+      %br
+      =ef.label :second_variables, "Values:"
+      #second_vars
+        - unless @food.extra_info.second_variables.nil?
+          - @food.extra_info.second_variables.each do |var|
+            .extra_info_value
+              %input{:id=>"food_extra_info_second_variables__value", :name=>"food[extra_info][second_variables][]", :size=>"30", :type=>"text", :value => var}
+              = link_to "remove", "#remove_var", :class => "remove_value"
+      %br
+      = link_to "+", "#new_var", :class => "new_second_option"
   .actions
     = f.submit 'Save'
