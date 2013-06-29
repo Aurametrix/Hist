@@ -21,6 +21,21 @@ class History
     criteria.order_by(:created_at.desc)
   end
 
+  def subhistory
+    self.f.subhistories.find(self.subhistory_id) unless self.f.nil? or self.subhistory_id.blank?
+  end
+  
+  def title
+    name = self.alias.blank? ? self.f.name : self.alias
+    
+    if self.variety.nil?
+      name
+    else
+      "#{name}, #{self.subhistory.name}"
+    end
+  end
+
+
   private
      def generate_happened_at
        self.happened_at = Time.now if self.happened_at.nil?
