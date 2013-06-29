@@ -14,6 +14,10 @@ gem "devise", ">= 1.1.2"
 gem "compass", ">= 0.10.5"
 gem "compass-960-plugin", ">= 0.10.0.beta.0"
 
+gem "sunspot_rails", ">= 1.2.rc4"
+gem "nokogiri"
+gem 'sunspot_mongoid'
+
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
   gem 'ruby-debug19'
