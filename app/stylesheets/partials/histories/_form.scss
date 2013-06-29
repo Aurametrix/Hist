@@ -1,0 +1,10 @@
+.edit_history {
+  @include grid(10,16);
+  
+  .form-section {
+    margin-top: 10px;
+  }
+  .subhistory {
+    margin-left: 40px;
+  }
+}

@@ -11,6 +11,7 @@ class History
   field :note, :type => String
   field :quantity, "type => Float, :default => 1.0
   field :happened_at, "type => DateTime
+  field :alias, :type => String
 
   scope :all_by_user, lambda { |user| { :where => { :user_id => user.id } } }
 
