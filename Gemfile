@@ -23,6 +23,14 @@ gem 'sunspot_mongoid'
 gem 'nestful'
 gem 'whenever', :require => false
 
+
+gem "exception_notification", :git => "git://github.com/rails/exception_notification", :require => 'exception_notifier'
+
+gem 'will_paginate', '~> 3.0.pre2'
+
+gem 'fastercsv'
+gem 'geokit'
+
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
   gem 'ruby-debug19'
