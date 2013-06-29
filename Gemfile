@@ -20,6 +20,8 @@ gem "sunspot_rails", ">= 1.2.rc4"
 gem "nokogiri"
 gem 'sunspot_mongoid'
 
+gem 'nestful'
+
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
   gem 'ruby-debug19'
