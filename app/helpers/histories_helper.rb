@@ -10,6 +10,13 @@ module HistoriesHelper
     time.strftime("%m/%d/%Y") unless time.nil?
   end
 
+   def display_possible_cause(pc)
+    action = pc.f.top_level_action
+    measured_in = action.nil? ? "" : action.measured_in
+    
+    unless measured_in.blank?
+      measured_in = "#{measured_in.split[0].pluralize} #{measured_in.split[1..-1].join(' ')}"
+    end
 
   def hours_of_the_day
    (0..23).map do |hour|
