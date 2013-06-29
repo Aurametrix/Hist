@@ -21,6 +21,7 @@ gem "nokogiri"
 gem 'sunspot_mongoid'
 
 gem 'nestful'
+gem 'whenever', :require => false
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.20"
