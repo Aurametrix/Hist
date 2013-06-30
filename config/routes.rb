@@ -6,6 +6,8 @@ AAA::Application.routes.draw do
 
   match 'history' => 'histories#index', :as => 'user_root'
 
+  match 'unauthorized_access' => 'intro#unauthorized'
+
   get "ints/new"
 
   get "search/index"
