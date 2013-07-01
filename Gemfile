@@ -7,7 +7,7 @@ gem 'haml'
 gem "haml-rails"
 
 gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
-gem "bson_ext", "1.0.4"
+gem "bson_ext", "1.9.0"
 
 gem "devise", ">= 1.1.2"
 
@@ -28,7 +28,7 @@ gem "exception_notification", :git => "git://github.com/rails/exception_notifica
 
 gem 'will_paginate', '~> 3.0.pre2'
 
-gem 'fastercsv'
+# gem 'fastercsv', :platforms => :ruby_18
 gem 'geokit'
 
 group :test, :development do
