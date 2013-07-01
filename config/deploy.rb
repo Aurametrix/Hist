@@ -28,6 +28,25 @@ namespace :deploy do
   end
 end
 
+desc "Restart & Reindex SOLR"
+  task :restart_sunspot_solr, :roles => :app do
+    begin
+      run "cd #{current_release} && rake solr:stop RAILS_ENV=production"    
+    rescue => e
+      puts e
+    end
+    begin
+      run "cd #{current_release} && rake solr:start RAILS_ENV=production"
+    rescue => e
+      puts e
+    end
+    begin
+      run "cd #{current_release} && rake solr:reindex RAILS_ENV=production"
+    rescue => e
+      puts e
+    end
+  end
+end
 
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
