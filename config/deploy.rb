@@ -27,3 +27,9 @@ namespace :deploy do
     run "touch #{current_release}/tmp/restart.txt"
   end
 end
+
+
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
+
+after 'deploy', 'deploy:cleanup'
