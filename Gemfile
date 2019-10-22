@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'haml'
+gem "haml", ">= 5.0.0"
 gem "haml-rails"
 
 gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
